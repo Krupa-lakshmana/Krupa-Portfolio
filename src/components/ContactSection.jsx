@@ -1,4 +1,4 @@
-import { Instagram, Linkedin, Mail, Phone, Send } from "lucide-react";
+import { Github, Instagram, Linkedin, Mail, Phone, Send } from "lucide-react";
 import { MapPin } from "lucide-react";
 import {cn} from '../lib/utils';
 
@@ -68,17 +68,19 @@ export const ContactSection = () => {
 
                     </div>
                     <div className="pt-8">
-                        <h4> Connect With Me</h4>
+                        <h4>I’m currently looking for internship opportunities, my inbox is always open. Whether you have a question or interest in my work, I’ll try my best to get back to you as soon as possible!</h4>
+                
+                        <h4 className="text-2xl font-semibold"> Connect With Me</h4>
                         <div className="flex space-x-4 justify-center">
                             <a href="https://www.linkedin.com/in/krupa-lakshmana-a420a225b/"
                             target="-blank"
                             >
                                 <Linkedin />
                             </a>
-                            <a href="#"
+                            <a href="https://github.com/Krupa-lakshmana"
                                 target="-blank"
                             >
-                                <Instagram />
+                                <Github />
                             </a>
                         </div>
 
@@ -99,7 +101,7 @@ export const ContactSection = () => {
                                 name="name" 
                                 required 
                                 className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outlind-hidden focus:ring-2 focus:ring-primary"
-                                placeholder="Krupa lakshmana.."/>
+                                placeholder="Your name.."/>
                         </div>
 
                         <div>
@@ -112,7 +114,7 @@ export const ContactSection = () => {
                                 name="email" 
                                 required 
                                 className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outlind-hidden focus:ring-2 focus:ring-primary"
-                                placeholder="krupa@gmail.com"/>
+                                placeholder="Your email"/>
                         </div>
 
                         <div>

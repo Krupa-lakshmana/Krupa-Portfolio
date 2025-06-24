@@ -1,13 +1,13 @@
-import { Menu ,X } from "lucide-react";
+import { Menu ,X,Home, User, Settings, Folder, Mail } from "lucide-react";
 import {cn} from "../lib/utils";
 import { useEffect, useState } from "react";
 
 const navItems = [
-    {name : "Home", href: "#hero"},
-    {name : "About", href: "#about"},
-    {name : "Skills", href: "#skills"},
-    {name : "Project", href: "#projects"},
-    {name : "Contact", href: "#contact"},
+    {name : "Home", href: "#hero", icon: <Home size={18} />},
+    {name : "About", href: "#about",icon: <User size={18} />},
+    {name : "Skills", href: "#skills", icon: <Settings size={18} /> },
+    {name : "Project", href: "#projects", icon: <Folder size={18} /> },
+    {name : "Contact", href: "#contact", icon: <Mail size={18} />},
 
 ]
 
@@ -39,16 +39,16 @@ export const Navbar = () => {
                     href="#hero"
                     >
                     <span  className="relative z-10">
-                        <span className="text-glow text-foreground"> KLTech </span> {" "}
-                        Portfolio 
+                        <span className="text-glow text-foreground"> </span> {" "}
                     </span>
                 </a>
 
                 { /* desktop nav */}
                 <div className="hidden md:flex ml-auto space-x-8">
                     {navItems.map((item, key) => (
-                        <a key={key} href={item.href} className="text-foreground/80 hover:text-primary transition-colors duration-300">
-                            {item.name}    
+                        <a key={key} href={item.href} className="flex items-center gap-2 text-foreground/80 hover:text-primary transition-colors duration-300">
+                            {item.name} 
+                            {item.icon}   
                         </a>
                     ))}
                 </div>
@@ -83,6 +83,8 @@ export const Navbar = () => {
                             className="text-foreground/80 hover:text-primary transition-colors duration-300"
                             onClick={() => setIsMenuOpen(false)}
                             >
+                             {item.icon}
+
                             {item.name}    
                         </a>
                     ))}
