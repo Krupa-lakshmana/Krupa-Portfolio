@@ -1,8 +1,39 @@
 import { Github, Instagram, Linkedin, Mail, Phone, Send } from "lucide-react";
 import { MapPin } from "lucide-react";
 import {cn} from '../lib/utils';
+import { useRef, useState } from "react";
+
 
 export const ContactSection = () => {
+    const formRef = useRef(null);
+    const [isSubmitted, setIsSubmitted] = useState(false);
+    const [error, setError] = useState(false);
+
+    const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError(false);
+
+    const formData = new FormData(formRef.current);
+
+    try {
+        const response = await fetch("https://formspree.io/f/xrbkobpe", {
+        method: "POST",
+        body: formData,
+        headers: {
+        Accept: "application/json",
+      },
+    });
+
+        if (response.ok) {
+            setIsSubmitted(true);
+            formRef.current.reset();
+        } else {
+        setError(true);
+        }
+    } catch (err) {
+        setError(true);
+    }
+    };
     return (
         <section id="contact"
         className="py-24 px-4 relative bg-secondary/30">
@@ -91,9 +122,7 @@ export const ContactSection = () => {
                 <div className="bg-card p-8 rounded-lg shadow-xs">
                     <h3 className="text-2xl font-semibold mb-6">Send a Message</h3>
                     <form 
-                        action="https://formspree.io/f/xrbkobpe" 
-                        method="POST" 
-                        className="space-y-6">
+                        ref={formRef} onSubmit={handleSubmit} className="space-y-6">
                         <div>
                             
                             <label htmlFor="name"className="block text-sm font-medium mb-2">
@@ -140,6 +169,16 @@ export const ContactSection = () => {
                             Send Message 
                             <Send size={16}/>
                         </button>
+                        {isSubmitted && (
+                            <p className="text-green-600 text-sm text-center">
+                                ✅ Message sent successfully!
+                            </p>
+                        )}
+                        {error && (
+                            <p className="text-red-600 text-sm text-center">
+                                ❌ Something went wrong. Please try again later.
+                            </p>
+                        )}
 
                     </form>
                 </div>
