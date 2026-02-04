@@ -1,96 +1,79 @@
-import { Menu ,X,Home, User, Settings, Folder, Mail } from "lucide-react";
-import {cn} from "../lib/utils";
-import { useEffect, useState } from "react";
+import { Menu, X } from "lucide-react";
+import { useState, useEffect } from "react";
+import { cn } from "../lib/utils";
 
 const navItems = [
-    {name : "Home", href: "#hero", icon: <Home size={18} />},
-    {name : "About", href: "#about",icon: <User size={18} />},
-    {name : "Skills", href: "#skills", icon: <Settings size={18} /> },
-    {name : "Project", href: "#projects", icon: <Folder size={18} /> },
-    {name : "Contact", href: "#contact", icon: <Mail size={18} />},
-
-]
-
+  { name: "Home", href: "#hero" },
+  { name: "About", href: "#about" },
+  { name: "Experience", href: "#experience" },
+  { name: "Education", href: "#education" },
+  { name: "Skills", href: "#skills" },
+  { name: "Projects", href: "#projects" },
+  { name: "Contact", href: "#contact" },
+  { name: "Teaching", href: "#teaching" },
+{ name: "Research", href: "#research" },
+];
 
 export const Navbar = () => {
-    const [isScrolled, setIsScrolled] = useState(false);
-    const [isMenuOpen , setIsMenuOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-    useEffect(() => {
-        const handleScroll = () => {
-            setIsScrolled(window.screenY > 10);
-        };
-        window.addEventListener("scroll", handleScroll);
-        return () => window.removeEventListener("scroll", handleScroll);
+  useEffect(() => {
+    document.body.style.overflow = isMenuOpen ? "hidden" : "auto";
+  }, [isMenuOpen]);
 
+  return (
+    // 👇 IMPORTANT: pointer-events-none prevents the full-width wrapper blocking clicks (ThemeToggle)
+    <div className="fixed top-6 inset-x-0 flex justify-center z-50 pointer-events-none">
+      {/* Desktop pill navbar */}
+      <nav className="hidden md:flex pointer-events-auto rounded-full bg-background/70 backdrop-blur-md border border-border shadow px-6 py-2 gap-6 ring-1 ring-white/5">
+        {navItems.map((item) => (
+          <a
+            key={item.name}
+            href={item.href}
+            className="flex items-center gap-2 text-sm text-foreground/80 hover:text-primary px-3 py-1.5 rounded-full transition"
+          >
+            {item.name}
+          </a>
+        ))}
+      </nav>
 
-    }, [] );
+      {/* Mobile hamburger */}
+      <button
+        onClick={() => setIsMenuOpen((prev) => !prev)}
+        className="md:hidden pointer-events-auto p-2 text-foreground absolute right-6"
+        aria-label={isMenuOpen ? "Close Menu" : "Open Menu"}
+      >
+        {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+      </button>
 
-    return (
-        <nav 
-            className={cn(
-                "fixed w-full z-40 transition-all duration-300",
-                isScrolled ? "py-3 bg-background/80 backdrop-blur-md shadow-xs" : "py-5"
-            )}
-        >
-            <div className="container flex items-center justify-between">
-                <a 
-                    className="text-xl font-bold text-primary flex items-center"
-                    href="#hero"
-                    >
-                    <span  className="relative z-10">
-                        <span className="text-glow text-foreground"> </span> {" "}
-                    </span>
-                </a>
+      {/* Mobile overlay */}
+      {isMenuOpen && (
+        <div
+          className="fixed inset-0 bg-black/60 z-40 md:hidden pointer-events-auto"
+          onClick={() => setIsMenuOpen(false)}
+        />
+      )}
 
-                { /* desktop nav */}
-                <div className="hidden md:flex ml-auto space-x-8">
-                    {navItems.map((item, key) => (
-                        <a key={key} href={item.href} className="flex items-center gap-2 text-foreground/80 hover:text-primary transition-colors duration-300">
-                            {item.name} 
-                            {item.icon}   
-                        </a>
-                    ))}
-                </div>
-               
-                { /* Mobile nav */}
-
-                <button 
-                    onClick={() => setIsMenuOpen((prev) => !prev)} 
-                    className="md:hidden p-2 text-foreground z-50"
-                    aria-label={isMenuOpen ? "Close Menu" : "Open Menu"}
-                >
-                    {isMenuOpen ? <X size={24 }/> :  <Menu size={24}/>}{""}
-                </button>
-                {isMenuOpen && (
-                    <div
-                        className="fixed inset-0 bg-black/40 z-30 md:hidden"
-                        onClick={() => setIsMenuOpen(false)}
-                    />
-                )}
-                <div 
-                    className={cn (
-                        "fixed top-0 right-0 h-full w-64 bg-background shadow-lg z-40 transform transition-transform duration-300 ease-in-out md:hidden",
-                        isMenuOpen ? "translate-x-0" : "translate-x-full"
-
-                    )}
-                >
-                <div className="flex flex-col space-y-8 text-xl">
-                    {navItems.map((item, key) => (
-                        <a 
-                            key={key} 
-                            href={item.href} 
-                            className="text-foreground/80 hover:text-primary transition-colors duration-300"
-                            onClick={() => setIsMenuOpen(false)}
-                            >
-                             {item.icon}
-
-                            {item.name}    
-                        </a>
-                    ))}
-                </div>
-                </div>
-            </div>
-        </nav>
-    );
+      {/* Mobile drawer */}
+      <div
+        className={cn(
+          "fixed top-0 right-0 h-full w-64 bg-background text-foreground shadow-lg z-50 transform transition-transform duration-300 ease-in-out md:hidden pointer-events-auto",
+          isMenuOpen ? "translate-x-0" : "translate-x-full"
+        )}
+      >
+        <div className="flex flex-col space-y-8 p-8 text-lg">
+          {navItems.map((item) => (
+            <a
+              key={item.name}
+              href={item.href}
+              className="flex items-center gap-3 hover:text-primary transition-colors duration-300"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              {item.name}
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
 };

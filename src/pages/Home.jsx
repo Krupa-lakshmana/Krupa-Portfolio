@@ -6,6 +6,14 @@ import { AboutSection } from "../components/AboutSection";
 import { SkillsSection } from "../components/SkillsSection";
 import { ProjectSection } from "../components/ProjectSection";
 import {ContactSection} from "../components/ContactSection";
+import AcademicsSection from "../components/AcademicsSection";
+import { SkillsSection } from "../components/SkillsSection";
+import { ProjectSection } from "../components/ProjectSection";
+import {ContactSection} from "../components/ContactSection";
+import { ExperienceSection } from "../components/ExperienceSection";
+import { TeachingSection } from "../components/TeachingSection";
+import { ResearchSection } from "../components/ResearchSection";
+
 
 export const Home = () => {
     return (
@@ -25,6 +33,10 @@ export const Home = () => {
         <main>
             <HeroSection/>
             <AboutSection/>
+            <ExperienceSection />
+            <TeachingSection />
+            <ResearchSection />
+            <AcademicsSection />
             <SkillsSection/>
             <ProjectSection/>
             <ContactSection/>
