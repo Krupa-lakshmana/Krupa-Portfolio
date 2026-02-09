@@ -7,7 +7,7 @@ const projects = [
     title: "Jesse Livermore GenAI Mentor Bot (RAG)",
     decription:
       "Built a RAG mentor bot that answers strategy questions using embeddings + vector search for grounded, context-aware responses.",
-    image: "public/projects/project5.png",
+    image: "/projects/project5.png",
     tags: ["Python", "LangChain", "FAISS", "Hugging Face"],
     demoUrl: "#",
     githubUrl: "https://github.com/Krupa-lakshmana/GenAI-Mentor-Bot",
@@ -18,7 +18,7 @@ const projects = [
     title: "DeepText Classifier (NLP)",
     decription:
       "Developed an NLP text classifier with preprocessing, model training and evaluation using standard classification metrics.",
-    image: "public/projects/project8.png",
+    image: "/projects/project8.png",
     tags: ["NLP", "TensorFlow", "Keras", "Python"],
     demoUrl: "#",
     githubUrl: "https://github.com/Krupa-lakshmana/ANN-Classification-Churnn",
@@ -39,7 +39,7 @@ const projects = [
     title: "Cloud-Native Web App Infrastructure (AWS)",
     decription:
       "Designed production-style AWS infra with VPC, ALB, Auto Scaling, RDS, IAM and CI/CD automation for cloud-native deployments.",
-    image: "public/projects/project6.png",
+    image: "/projects/project6.png",
     tags: ["AWS", "Terraform", "Packer", "GitHub Actions"],
     demoUrl: "#",
     githubUrl: "https://github.com/Krupa-lakshmana/webapp",
@@ -49,12 +49,12 @@ const projects = [
     title: "Real-Time Event Pipeline (Kafka + Microservices)",
     decription:
       "Implemented an event-driven pipeline using Kafka and microservices for real-time ingestion and processing with reliable patterns.",
-    image: "public/projects/project7.png",
+    image: "/projects/project7.png",
     tags: ["Kafka", "Microservices", "Java", "Observability"],
     demoUrl: "#",
     githubUrl: "#",
   },
-    {
+  {
     id: 6,
     title: "Fantasy Football League",
     decription:
