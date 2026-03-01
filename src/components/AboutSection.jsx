@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Briefcase, Code, User } from "lucide-react";
+import { Cloud, BrainCircuit, ServerCog } from "lucide-react";
 
 export const AboutSection = () => {
   const wrapRef = useRef(null);
@@ -7,13 +7,12 @@ export const AboutSection = () => {
 
   useEffect(() => {
     let raf = 0;
-    const range = 320;     // px over which to fully fade
-    const distance = 40;   // px to move upward
+    const range = 320;
+    const distance = 40;
 
     const onScroll = () => {
       if (!wrapRef.current) return;
       const rect = wrapRef.current.getBoundingClientRect();
-      // start fading once the section top hits viewport top
       const progress = Math.min(1, Math.max(0, (0 - rect.top) / range));
       const opacity = 1 - progress * 0.95;
       const translateY = -progress * distance;
@@ -45,21 +44,28 @@ export const AboutSection = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
+            {/* ✅ CHANGED: Removed "Aspiring" — leads with disciplines + experience level */}
             <h3 className="text-2xl font-semibold">
-              💻 Aspiring Software Engineer | Problem Solver | Tech Enthusiast
+              👩🏻‍💻 Software Engineer | Backend · GenAI · Cloud Systems
             </h3>
+
+            {/* ✅ CHANGED: Leads with experience + production impact, not student status */}
             <p className="text-muted-foreground">
-              I’m a Master’s student in Software Engineering Systems at Northeastern University,
-              where I blend curiosity with code to build systems that solve real-world problems.
-              With a passion for backend development and smart system design,
-              I enjoy turning complex ideas into clean, reliable software.
+              I'm a Software Engineer with 2+ years of experience building
+              production-grade backend systems, GenAI pipelines, and cloud-native
+              infrastructure across both cloud and on-prem environments. I focus on
+              distributed systems that are fault-tolerant, observable, and built to
+              handle real workloads.
             </p>
+
+            {/* ✅ CHANGED: Confident, direct CTA — not "lookout" or "keep learning" */}
             <p className="text-muted-foreground">
-              I'm on the lookout for software engineering roles where I can keep learning,
-              build meaningful tech, and be part of something innovative.
+              I'm actively seeking full-time <strong className="text-primary">Software Engineer — Backend</strong> roles.
+              If you're building systems that need to be fast, reliable, and scalable — let's talk.
             </p>
+
             <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center">
-              <a href="#contact" className="cosmic-button">Get In touch</a>
+              <a href="#contact" className="cosmic-button">Get In Touch</a>
               <a
                 href=" "
                 className="px-6 py-2 rounded-full border border-primary text-primary hover:bg-primary/10 transition-colors duration-300"
@@ -73,48 +79,50 @@ export const AboutSection = () => {
             <div className="gradient-border p-6 card-hover">
               <div className="flex items-start gap-4">
                 <div className="p-3 rounded-full bg-primary/10">
-                  <User className="h-6 w-6 text-primary" />
+                  <ServerCog className="h-6 w-6 text-primary" />
                 </div>
                 <div className="text-left">
-                  <h4 className="font-semibold text-lg">Software Engineer</h4>
+                  <h4 className="font-semibold text-lg">Backend Engineer</h4>
                   <p className="text-muted-foreground">
-                    Building reliable, end-to-end software solutions with strong attention to performance and design.
-                  </p>
-                </div>
-              </div>
-            </div>
-            
-            <div className="gradient-border p-6 card-hover">
-              <div className="flex items-start gap-4">
-                <div className="p-3 rounded-full bg-primary/10">
-                  <Code className="h-6 w-6 text-primary" />
-                </div>
-                <div className="text-left">
-                  <h4 className="font-semibold text-lg">Backend Developer</h4>
-                  <p className="text-muted-foreground">
-                    Crafting scalable, secure, and well-structured server-side systems using clean architecture and APIs.
+                    Designing distributed, fault-tolerant backend systems with
+                    high-throughput APIs, event-driven architecture, and production-grade observability.
                   </p>
                 </div>
               </div>
             </div>
 
+            <div className="gradient-border p-6 card-hover">
+              <div className="flex items-start gap-4">
+                <div className="p-3 rounded-full bg-primary/10">
+                  <Cloud className="h-6 w-6 text-primary" />
+                </div>
+                <div className="text-left">
+                  <h4 className="font-semibold text-lg">Cloud & Infrastructure</h4>
+                  <p className="text-muted-foreground">
+                    Deploying containerized workloads on AWS and Kubernetes with CI/CD
+                    pipelines, CloudWatch monitoring, and infrastructure automation.
+                  </p>
+                </div>
+              </div>
+            </div>
 
             <div className="gradient-border p-6 card-hover">
               <div className="flex items-start gap-4">
                 <div className="p-3 rounded-full bg-primary/10">
-                  <Briefcase className="h-6 w-6 text-primary" />
+                  <BrainCircuit className="h-6 w-6 text-primary" />
                 </div>
                 <div className="text-left">
-                  <h4 className="font-semibold text-lg">AI/ML Enthusiast</h4>
+                  <h4 className="font-semibold text-lg">AI-Powered Systems</h4>
                   <p className="text-muted-foreground">
-                    Exploring intelligent systems that learn, adapt, and power data-driven decision making.
+                    Integrating GenAI and ML capabilities into backend services —
+                    RAG pipelines, vector search, and LLM inference at production scale.
                   </p>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>      
+      </div>
     </section>
   );
 };
