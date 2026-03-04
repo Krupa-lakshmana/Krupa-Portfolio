@@ -3,25 +3,27 @@ import { Briefcase } from "lucide-react";
 
 const experiences = [
   {
-    role: "Cloud Software Engineer",
+    role: "Software Engineer",
     company: "Acmegrade",
     location: "Bangalore, India",
     dates: "Jan 2023 – Aug 2024",
     points: [
-      "I worked on building production-grade backend services in Python that powered AI/ML data ingestion pipelines, where I focused on resource estimation (CPU, memory, I/O) and system behavior under real-world concurrent workloads.",
-      "A big part of my role was benchmarking and optimizing data pipelines, where I improved overall performance, throughput, and reliability by ~30% through multithreading, preprocessing optimization, and execution tuning.",
-      "I also owned observability and documentation, setting up monitoring pipelines and writing architecture docs and runbooks, which helped the team debug faster and significantly reduced production incident resolution time (MTTR).",
+      "Improved system latency & availability by ~30% through multithreading and service refactoring",
+      "Cut incident resolution time from 48+ hrs to under 6 hrs by building observability pipelines",
+      "Shipped production Python backend services with FastAPI, owning API design end-to-end",
+      "Automated CI/CD pipelines, reducing deployment friction across containerized services",
     ],
   },
   {
-    role: "Machine Learning Engineer",
+    role: "Software Engineer",
     company: "Tech Fortune",
     location: "Bangalore, India",
     dates: "Sep 2022 – Jan 2023",
     points: [
-      "I built and optimized low-latency AI inference and retrieval services, working across Python-based ML pipelines that supported 100+ concurrent users in early-stage production environments.",
-      "I was responsible for estimating compute, memory, and storage requirements for large-scale NLP workflows processing millions of documents, and used benchmarking experiments to reduce end-to-end processing time by ~78%.",
-      "Alongside model work, I developed automation and analysis tools and wrote clear technical documentation, helping align ML experimentation with production-ready engineering practices.",
+      "Built low-latency backend services handling 100+ concurrent requests at sub-200ms P95",
+      "Reduced pipeline failure rates by ~25% through structured validation and fault isolation",
+      "Designed modular distributed components enabling independent scaling across services",
+      "Built P50/P95/P99 observability dashboards, accelerating production debugging efficiency",
     ],
   },
 ];
