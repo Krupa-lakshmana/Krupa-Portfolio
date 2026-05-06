@@ -6,7 +6,7 @@ const experiences = [
     role: "Software Engineer",
     company: "Acmegrade",
     location: "Bangalore, India",
-    dates: "JFeb 2024 – Aug 2024",
+    dates: "Feb 2024 – Aug 2024",
     points: [
       "Reduced average API latency from 220ms to 150ms by profiling the Python backend, introducing multithreading, and optimizing I/O-heavy transformation steps",
       "Built a data ingestion backend processing 2–5GB of text/log data daily, feeding ML pipelines for ~8 data scientists",
