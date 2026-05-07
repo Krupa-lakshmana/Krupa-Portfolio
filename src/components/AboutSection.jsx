@@ -114,7 +114,7 @@ export const AboutSection = () => {
                 <div className="text-left">
                   <h4 className="font-semibold text-lg">AI-Powered Systems</h4>
                   <p className="text-muted-foreground">
-                    Integrating GenAI and ML capabilities into backend services —
+                    Integrating GenAI and ML capabilities into backend services,
                     RAG pipelines, vector search, and LLM inference at production scale.
                   </p>
                 </div>
